@@ -7,6 +7,7 @@ restaurantes = [ #Isso é um dicionário dentro de uma lista
 ] 
 
 def exibir_nome_programa():
+    '''Essa função é responsavel para mostrar o nome do programa'''
     print("""
         
         
@@ -20,10 +21,15 @@ def exibir_nome_programa():
         """)
 
 def voltar_menu():
+    ''' Essa função é responsavel para voltar ao menu do programa
+        Input: Tecla para voltar ao menu
+    '''
+
     input('\nDigite uma tecla para voltar ao menu principal: ')
     main()
 
 def exibir_subtitulo(texto):
+    '''Essa função é responsavel para mostrar o subtitulo do programa'''
     os.system('cls')
     linha = '*' * (len(texto))
     print(linha)
@@ -31,6 +37,15 @@ def exibir_subtitulo(texto):
     print(linha)
 
 def cadastrar_restaurante():
+    ''' Essa função é responsavel para cadastrar um restaurante por vez
+
+        Inputs:
+        Nome do restaurante
+        Categoria
+
+        Output:
+        Adiciona um novo restaurante a lista
+    '''
     exibir_subtitulo('Cadastro de novos restaurantes\n')
     nome_restaurante = input('Digite o nome do restaurante que deseja cadastrar: ')
     categoria = input(f'Digite o nome da categoria do restaurante {nome_restaurante}: ')
@@ -40,6 +55,7 @@ def cadastrar_restaurante():
     voltar_menu()
 
 def listar_restaurante():
+    ''' Essa função é responsavel para listar os restaurantes cadastrados'''
     exibir_subtitulo('Listando restaurantes: \n')
         #variavel declarada no laço
     print(f'{" Nome do Restaurante".ljust(20)}  | {"Categoria".ljust(20)} | Status')  
@@ -51,6 +67,11 @@ def listar_restaurante():
     voltar_menu()               # .ljust da um espaçamento para o lado
 
 def alternar_estado():
+    ''' Essa função é respnsavel para mudar o status de ATIVO ou INATIVO do restaurante
+
+        Input:
+        Nome do restaurante
+    '''
     exibir_subtitulo('Alternando estado do restaurante')
     nome_restaurante = input('Digite o nome do restaurante que deseja alterar estado: ')
     restaurante_encontrado = False
@@ -65,16 +86,19 @@ def alternar_estado():
     voltar_menu()
 
 def opcao_invalida():
+    '''Essa função é responsavel para invalidar uma ação'''
     print('Opção inválida\n')
     voltar_menu()
 
 def exibir_opcoes():
+    '''Essa função é responsavel para exibir as opções do app'''
     print('1. Cadastrar restaurante: ')
     print('2. Listar: ')
     print('3. Ativar/Desativar restaurante:')
     print('4. Sair: ')
 
 def escolher_opcao():
+    '''Essa função é responsavel para escolher a ação desejada'''
     try:
         opcao_escolhida = int(input('\nEscolha uma opção: '))
         
@@ -94,9 +118,11 @@ def escolher_opcao():
         opcao_invalida()        
 
 def finalizar_app():
+    '''Essa função finaliza o app'''
     exibir_subtitulo('Finalizando o app\n')        
 
 def main():
+    '''Função principal do programa'''
     os.system('cls')
     exibir_nome_programa()
     exibir_opcoes()
